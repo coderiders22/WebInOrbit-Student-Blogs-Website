@@ -866,6 +866,9 @@ body.nav-active { overflow: hidden; }
   border-radius: var(--radius-48);
   color: var(--text-wild-blue-yonder);
   margin-block-end: 24px;
+  margin-top: 40px;
+  width: 100%; /* Set width to 100% */
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
 }
 
 .footer-top {
