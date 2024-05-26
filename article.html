@@ -89,7 +89,6 @@
             <a href="index.html" class="navbar-link hover-1" data-nav-toggler>Contact</a>
           </li>
 
-
         </ul>
 
        
@@ -117,63 +116,75 @@
         - #HERO
       -->
 
-     <section class="hero" id="home" aria-label="home">
-  <div class="container">
-    <div class="hero-content">
-      <p class="hero-subtitle"></p>
-      <h1 class="headline headline-1 section-title">
-        Tech Placements: <span class="span">Your Gateway to a Thriving Career</span>
-      </h1>
-      <p class="hero-text">
-        Navigating the world of placements can be daunting for students, especially in the fast-paced tech industry. However, with the right guidance and resources, securing a placement can become a rewarding experience that sets the foundation for a successful career. Here, we explore the best practices and tips to help you land your dream placement.
-      </p>
-    </div>
-    <div class="hero-banner">
-      <img src="./assets/images/23.png" width="327" height="490" alt="Wren Clark" class="w-100">
-      <img src="./assets/images/pattern-2.svg" width="27" height="26" alt="shape" class="shape shape-1">
-      <img src="./assets/images/pattern-3.svg" width="27" height="26" alt="shape" class="shape shape-2">
-    </div>
-    <img src="./assets/images/shadow-1.svg" width="500" height="800" alt="" class="hero-bg hero-bg-1">
-    <img src="./assets/images/shadow-2.svg" width="500" height="500" alt="" class="hero-bg hero-bg-2">
-  </div>
-  <div class="container">
-    <h3 class="headline headline-3">1. Start Early and Research Thoroughly</h3>
-    <p class="blog-text">
-      Begin your placement search early to maximize your options. Utilize platforms like <a href="https://www.ratemyplacement.co.uk/search-jobs/all-types/technology" target="_blank" style="display: inline;"> <span style="color: hsla(199, 89%, 49%, 1);display: inline-block;">RateMyPlacements</span></a> to explore various opportunities available in the tech industry. This site provides detailed reviews of placements from previous students, helping you make an informed decision.
-    </p>
-    <h3 class="headline headline-3">2. Craft a Standout CV and Cover Letter</h3>
-    <p class="blog-text">
-      Your CV and cover letter are your first impressions to potential employers. Ensure they are well-crafted, highlighting your technical skills, academic achievements, and any relevant projects. Tailor each application to the specific role and company to show genuine interest.
-    </p>
-    <h3 class="headline headline-3">3. Leverage University Resources</h3>
-    <p class="blog-text">
-      Many universities offer dedicated career services that provide valuable resources such as resume workshops, mock interviews, and job fairs. Make the most of these services to enhance your application and interview skills. According to <a href="https://www.prospects.ac.uk/jobs-and-work-experience/work-experience-and-internships/internships" target="_blank" style="display: inline;"> <span style="color:  hsla(199, 89%, 49%, 1);display: inline-block;">Prospects</span></a>, engaging with these resources can significantly boost your chances of securing a placement.
-    </p>
+      <section class="hero" id="home" aria-label="home">
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="headline headline-1 section-title" id="blog-title"></h1>
+            <p class="hero-text" id="blog-description"></p>
+          </div>
+          <div class="hero-banner">
+            <img id="blog-image" src="" alt="Blog Image" class="w-100">
+            <img src="./assets/images/pattern-2.svg" width="27" height="26" alt="shape" class="shape shape-1">
+            <img src="./assets/images/pattern-3.svg" width="27" height="26" alt="shape" class="shape shape-2">
+          </div>
+          <img src="./assets/images/shadow-1.svg" width="500" height="800" alt="" class="hero-bg hero-bg-1">
+          <img src="./assets/images/shadow-2.svg" width="500" height="500" alt="" class="hero-bg hero-bg-2">
+        </div>
+        <div class="container" id="blog-content">
+          <!-- Blog sections will be injected here -->
+        </div>
+      </section>
     
+      <script>
+        async function fetchBlogById(id) {
+          try {
+            const response = await fetch(`https://your-backend-api.com/blogs/${id}`);
+            const blog = await response.json();
+            displayBlog(blog);
+          } catch (error) {
+            console.error('Error fetching blog:', error);
+          }
+        }
     
+        function displayBlog(blog) {
+          document.getElementById('blog-title').textContent = blog.title;
+          document.getElementById('blog-description').textContent = blog.description;
+          document.getElementById('blog-image').src = blog.image;
     
+          const blogContentContainer = document.getElementById('blog-content');
+          blog.sections.forEach((section, index) => {
+            const sectionContainer = document.createElement('div');
+            sectionContainer.className = 'container';
     
-    <h3 class="headline headline-3">4. Network and Build Connections</h3>
-    <p class="blog-text">
-      Networking is crucial in the tech industry. Attend industry events, join professional groups on LinkedIn, and connect with alumni working in your field of interest. Networking can open doors to hidden opportunities and provide insights into the industry. LinkedIn is a powerful tool for building your professional network and can be invaluable during your placement search.
-    </p>
-    <h3 class="headline headline-3">5. Prepare for Technical Interviews</h3>
-    <p class="blog-text">
-      Technical interviews are a core part of the placement process in tech roles. Practice coding problems on platforms like  <a href="https://leetcode.com/" target="_blank" style="display: inline;"> <span style="color: hsla(199, 89%, 49%, 1);display: inline-block;">LeetCode</span></a> LeetCode and  <a href="https://www.hackerrank.com/" target="_blank" style="display: inline;"> <span style="color: hsla(199, 89%, 49%, 1);display: inline-block;">HackerRank</span></a> . Understand the fundamentals of data structures and algorithms, and be prepared to solve problems on a whiteboard during interviews.
-    </p>
-    <h3 class="headline headline-3">6. Stay Updated with Industry Trends</h3>
-    <p class="blog-text">
-      The tech industry is constantly evolving, and staying updated with the latest trends and technologies can give you an edge. Follow tech blogs, read industry news, and engage with online communities to stay informed about emerging technologies and market demands.
-    </p>
-  </div>
-</section>
+            const heading = document.createElement('h3');
+            heading.className = 'headline headline-3';
+            heading.textContent = `${index + 1}. ${section.title}`;
+    
+            const text = document.createElement('p');
+            text.className = 'blog-text';
+            text.innerHTML = section.content;
+    
+            sectionContainer.appendChild(heading);
+            sectionContainer.appendChild(text);
+    
+            blogContentContainer.appendChild(sectionContainer);
+          });
+        }
+    
+        function getQueryParam(param) {
+          const urlParams = new URLSearchParams(window.location.search);
+          return urlParams.get(param);
+        }
+    
+        document.addEventListener('DOMContentLoaded', () => {
+          const blogId = getQueryParam('id');
+          if (blogId) {
+            fetchBlogById(blogId);
+          }
+        });
+      </script>
 
-  
-
-      <!-- 
-        - #TOPICS
-      -->
-     
+ 
       
     
     </article>
