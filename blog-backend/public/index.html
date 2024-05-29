@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>WebInOrbit Tech Blogs</title>
+  <meta name="title" content="">
+  <meta name="description" content="">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo88.png" type="image/png">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/47.jpg">
+  <link rel="preload" as="image" href="./assets/images/pattern-2.svg">
+  <link rel="preload" as="image" href="./assets/images/pattern-3.svg">
+
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="./assets/images/43.png" width="250" height="250" alt="Wren logo">
+      </a>
+
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <a href="#" class="logo">
+            <img src="./assets/images/43.png" width="250" height="250"alt="Wren logo">
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li>
+            <a href="#home" class="navbar-link hover-1" data-nav-toggler>Home</a>
+          </li>
+
+          <li>
+            <a href="#topics" class="navbar-link hover-1 active" data-nav-toggler>Topics</a>
+          </li>
+
+          <li>
+            <a href="#featured" class="navbar-link hover-1" data-nav-toggler>Featured Post</a>
+          </li>
+
+        
+          <li>
+            <a href="#jobs" class="navbar-link hover-1" data-nav-toggler>Placements/Internships</a>
+          </li>
+          <li>
+            <a href="#" class="navbar-link hover-1" data-nav-toggler>Contact</a>
+          </li>
+
+        </ul>
+
+       
+
+       
+
+      </nav>
+
+      
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="hero" id="home" aria-label="home">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <p class="hero-subtitle">Hello Everyone!</p>
+
+            <h1 class="headline headline-1 section-title">
+              Welcome to <span class="span">WebInOrbit Blogs </span>
+            </h1>
+
+            <p class="hero-text">
+              Discover the latest insights in technology and placements, curated especially for students. Stay updated with expert advice, industry trends, and tips to ace your campus interviews. Join us on a journey to empower your career with knowledge and opportunities.
+
+          
+            </p>
+            
+
+            <div class="input-wrapper">
+
+              <input type="email" name="email_address" placeholder="Type your email address" required
+                class="input-field" autocomplete="off">
+
+              <button class="btn btn-primary">
+                <span class="span">Subscribe</span>
+
+                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+              </button>
+
+            </div>
+
+          </div>
+
+          <div class="hero-banner">
+
+            <img src="./assets/images/78.png" width="327" height="490" alt="Wren Clark" class="w-100">
+
+            <img src="./assets/images/pattern-2.svg" width="27" height="26" alt="shape" class="shape shape-1">
+
+            <img src="./assets/images/pattern-3.svg" width="27" height="26" alt="shape" class="shape shape-2">
+
+          </div>
+
+          <img src="./assets/images/shadow-1.svg" width="500" height="800" alt="" class="hero-bg hero-bg-1">
+
+          <img src="./assets/images/shadow-2.svg" width="500" height="500" alt="" class="hero-bg hero-bg-2">
+
+        </div>
+      </section>
+
+
+
+      <!-- 
+        - #TOPICS
+      -->
+
+      <section class="topics" id="topics" aria-labelledby="topic-label">
+        <div class="container">
+          <div class="card topic-card">
+            <div class="card-content">
+              <h2 class="headline headline-2 section-title card-title" id="topic-label">
+                Hot topics
+              </h2>
+              <p class="card-text">Don't miss out on the latest news about Technology, Student Placements, and Company News.</p>
+              <div class="btn-group">
+                <button class="btn-icon" aria-label="previous" data-slider-prev>
+                  <ion-icon name="arrow-back" aria-hidden="true"></ion-icon>
+                </button>
+                <button class="btn-icon" aria-label="next" data-slider-next>
+                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                </button>
+              </div>
+            </div>
+            <div class="slider" data-slider>
+              <ul class="slider-list" data-slider-container id="blog-list">
+          
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const sliderContainer = document.querySelector('[data-slider-container]');
+          const prevButton = document.querySelector('[data-slider-prev]');
+          const nextButton = document.querySelector('[data-slider-next]');
+          let sliderIndex = 0;
+        
+          async function fetchBlogs() {
+            try {
+              const response = await fetch('/blogs'); 
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              const blogs = await response.json();
+              const hotTopics = blogs.filter(blog => blog.category === 'hot-topics');
+              displayBlogs(hotTopics);
+            } catch (error) {
+              console.error('Error fetching blogs:', error);
+            }
+          }
+        
+          function displayBlogs(blogs) {
+            const blogList = document.getElementById('blog-list');
+            blogList.innerHTML = ''; 
+            blogs.forEach(blog => {
+              const listItem = document.createElement('li');
+              listItem.className = 'slider-item';
+              listItem.innerHTML = `
+                <a href="blog.html?id=${blog.id}" class="slider-card">
+                  <figure class="slider-banner img-holder" style="--width: 507; --height: 618;">
+                    <img src="${blog.image}" width="507" height="618" loading="lazy" alt="${blog.title}" class="img-cover">
+                  </figure>
+                  <div class="slider-content">
+                    <span class="slider-title">${blog.title}</span>
+                    <p class="slider-subtitle">${blog.description}</p>
+                  </div>
+                </a>
+              `;
+              blogList.appendChild(listItem);
+            });
+            updateSlider();
+          }
+        
+          function updateSlider() {
+            const totalItems = sliderContainer.children.length;
+            sliderContainer.style.transform = `translateX(-${sliderIndex * 100}%)`;
+            nextButton.disabled = sliderIndex >= totalItems - 1;
+            prevButton.disabled = sliderIndex <= 0;
+          }
+        
+          prevButton.addEventListener('click', function() {
+            if (sliderIndex > 0) {
+              sliderIndex--;
+              updateSlider();
+            }
+          });
+        
+          nextButton.addEventListener('click', function() {
+            const totalItems = sliderContainer.children.length;
+            if (sliderIndex < totalItems - 1) {
+              sliderIndex++;
+              updateSlider();
+            }
+          });
+        
+          fetchBlogs();
+        });
+        
+      </script>
+      <!-- 
+        - #FEATURED POST
+      -->
+
+      <section class="section feature" aria-label="feature" id="featured">
+        <div class="container">
+          <h2 class="headline headline-2 section-title">
+            <span class="span">Editor's Picks</span>
+          </h2>
+          <p class="section-text">
+            Featured and highly rated articles on technology and placements.
+          </p>
+          <ul class="feature-list" id="editor-picks-list">
+         
+          </ul>
+          <a href="#" class="btn btn-secondary">
+            <span class="span">Show More Posts</span>
+            <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+          </a>
+        </div>
+        <img src="./assets/images/shadow-3.svg" width="500" height="1500" loading="lazy" alt="" class="feature-bg">
+      </section>
+      
+      <script>
+        async function fetchEditorsPicks() {
+          try {
+            const response = await fetch('/blogs');
+            const blogs = await response.json();
+        
+            const picksList = document.getElementById('editor-picks-list');
+            picksList.innerHTML = '';
+        
+            const editorPicks = blogs.filter(blog => blog.category === 'editors-picks');
+        
+            editorPicks.forEach(pick => {
+              const listItem = document.createElement('li');
+        
+              listItem.innerHTML = `
+                <div class="card feature-card">
+                  <figure class="card-banner img-holder" style="--width: 1602; --height: 903;">
+                    <img src="${pick.image}" width="1602" height="903" loading="lazy" alt="${pick.title}" class="img-cover">
+                  </figure>
+                  <div class="card-content">
+                    <div class="card-wrapper">
+                      <div class="card-tag">
+                        ${pick.tags.map(tag => `<a href="#" class="span hover-2">#${tag}</a>`).join('')}
+                      </div>
+                      <div class="wrapper">
+                        <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+                        <span class="span">${pick.readTime} mins read</span>
+                      </div>
+                    </div>
+                    <h3 class="headline headline-3">
+                      <a href="blog.html?id=${pick.id}" class="card-title hover-2">${pick.title}</a>
+                    </h3>
+                    <div class="card-wrapper">
+                      <div class="profile-card">
+                        <img src="${pick.authorImage}" width="48" height="48" loading="lazy" alt="${pick.author}" class="profile-banner">
+                        <div>
+                          <p class="card-title">${pick.author}</p>
+                          <p class="card-subtitle">${pick.date}</p>
+                        </div>
+                      </div>
+                      <a href="blog.html?id=${pick.id}" class="card-btn">Read more</a>
+                    </div>
+                  </div>
+                </div>
+              `;
+              picksList.appendChild(listItem);
+            });
+          } catch (error) {
+            console.error('Error fetching editor\'s picks:', error);
+          }
+        }
+        
+        document.addEventListener('DOMContentLoaded', fetchEditorsPicks);
+        </script>
+        
+      
+      
+
+    <!-- Recent Jobs Section -->
+    <section class="section recent-post" id="jobs" aria-labelledby="recent-label">
+      <div class="container">
+        <div class="post-main">
+          <h2 class="headline headline-2 section-titles" id="recent-label">
+            <span class="span">Recent Jobs</span>
+          </h2>
+          <p class="section-text">
+            Don't miss the latest Jobs
+          </p>
+          <div class="job-list" id="job-list">
+         
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        fetch('/jobs')
+          .then(response => response.json())
+          .then(data => {
+            const jobListContainer = document.getElementById('job-list');
+  
+      
+            data.forEach(job => {
+              const jobCard = document.createElement('div');
+              jobCard.classList.add('job-card');
+  
+              jobCard.innerHTML = `
+                <div class="job-header">
+                  <img src="${job.companyLogo}" alt="Company Logo" class="company-logo">
+                  <div class="job-info">
+                    <h3 class="job-title">${job.companyName}</h3>
+                    <span class="job-type">${job.jobType}</span>
+                  </div>
+                </div>
+                <p class="job-role">${job.role}</p>
+                <div class="job-meta">
+                  <span class="job-location">${job.location}</span>
+                  <span class="job-duration">${job.duration}</span>
+                  <span class="job-batch">${job.batch}</span>
+                  <span class="job-salary">${job.salary}</span>
+                </div>
+                <p class="job-description">${job.description}</p>
+                <a href="${job.applyLink}" class="apply-btn">Apply</a>
+              `;
+  
+              jobListContainer.appendChild(jobCard);
+            });
+          })
+          .catch(error => {
+            console.error('Error fetching job data:', error);
+          });
+      });
+    </script>
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+  }
+  
+  .section-titles {
+      font-size: 36px;
+      margin-bottom: 10px;
+  }
+  
+  .section-text {
+      font-size: 16px;
+      margin-bottom: 20px;
+  }
+  
+  .job-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+  }
+  
+  .job-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+  }
+  
+  .company-logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+  }
+  
+  .job-info {
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .job-title {
+      font-size: 20px;
+      margin: 0;
+  }
+  
+  .job-type {
+      font-size: 14px;
+      color: #888;
+  }
+  
+  .full-time {
+      color: #7c4dff;
+  }
+  
+  .part-time {
+      color: #ff5722;
+  }
+  
+  .internship {
+      color: #03a9f4;
+  }
+  
+  .contract {
+      color: #ff9800;
+  }
+  
+  .job-role {
+      font-size: 18px;
+      margin: 10px 0;
+  }
+  
+  .job-meta {
+      display: flex;
+      gap: 10px;
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 20px;
+  }
+  
+  .job-meta span {
+      padding: 5px 10px;
+      border: 1px solid #444;
+      border-radius: 4px;
+  }
+  
+  .job-location {
+      color: #e91e63;
+  }
+  
+  .job-duration {
+      color: #2196f3;
+  }
+  
+  .job-batch {
+      color: #ff9800;
+  }
+  
+  .job-salary {
+      color: #4caf50;
+  }
+  
+  .job-description {
+      font-size: 16px;
+      margin-bottom: 20px;
+  }
+  
+  .job-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: var(--bg-oxford-blue);
+      border: 1px solid var(--border-prussian-blue);
+      border-radius: 8px;
+      padding: 20px;
+      flex: 1 1 calc(50% - 20px); 
+      box-sizing: border-box;
+  }
+  .apply-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .apply-btn:before, .apply-btn:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 25px;
+    border: 2px solid transparent;
+    animation: animateBorder 3s linear infinite;
+  }
+  
+  .apply-btn:before {
+    border-color: white;
+  }
+  
+  .apply-btn:after {
+    border-color: #6a0dad;
+    animation-delay: 1.5s; 
+  }
+  
+  @keyframes animateBorder {
+    0% {
+      clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    }
+    25% {
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
+    }
+    50% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%);
+    }
+    75% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    100% {
+      clip-path: polygon(0 0, 0 0, 100% 100%, 0 100%);
+    }
+  }
+  
+  
+
+  @media only screen and (min-width: 768px) {
+      .job-card {
+          flex: 1 1 calc(33.333% - 20px); 
+      }
+  }
+</style>  
+    </article>
+    </main>
+    
+        
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer>
+    <div class="container">
+
+      <div class="card footer">
+
+        <div class="section footer-top">
+
+          <div class="footer-brand">
+
+            <a href="#" class="logo">
+              <img src="./assets/images/43.png" width="250" height="250" loading="lazy" alt="Wren logo">
+            </a>
+
+            <p class="footer-text">
+              Discover the latest insights in technology and placements, curated especially for students. Stay updated with expert advice, industry trends, and tips to ace your campus interviews. Join us on a journey to empower your career with knowledge and opportunities.
+            </p>
+
+            <p class="footer-list-title">Address</p>
+
+            <address class="footer-text address">
+              3547 Sector-23D Chandigarh <br>
+             
+            </address>
+
+          </div>
+
+          <div class="footer-list">
+</div>
+
+          <div class="footer-list">
+
+            <p class="footer-list-title">Newsletter</p>
+
+            <p class="footer-text">
+              Sign up to be first to receive the latest stories inspiring us, case studies, and industry news.
+            </p>
+
+            <div class="input-wrapper">
+              <input type="text" name="name" placeholder="Your name" required class="input-field" autocomplete="off">
+
+              <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+            </div>
+
+            <div class="input-wrapper">
+              <input type="email" name="email_address" placeholder="Emaill address" required class="input-field"
+                autocomplete="off">
+
+              <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+            </div>
+
+            <a href="#" class="btn btn-primary">
+              <span class="span">Subscribe</span>
+
+              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+          <p class="copyright">
+            &copy;  <a href="#" class="copyright-link">Stubic Solutions Private Limited</a>
+          </p>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="https://youtube.com/@WEBINORBIT23" class="social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+
+                <span class="span">Youtube</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.linkedin.com/company/webinorbit/" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+
+                <span class="span">LinkedIn</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://instagram.com/webinorbit?igshid=MTk0NTkyODZkYg==" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+
+                <span class="span">Instagram</span>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+  <style>
+
+    footer {
+      width: 100%; /* Set the width to 100% */
+    }
+    
+    .container {
+      width: 100%; /* Ensure the container spans the full width */
+      max-width: none; /* Disable any maximum width set by parent containers */
+    }
+    
+    .card.footer {
+      width: 100%; /* Set the width to 100% */
+    }
+    
+    .footer-top,
+    .footer-bottom {
+      padding: 20px; /* Adjust padding as needed */
+    }
+    
+    .footer-list {
+      width: 100%; /* Ensure the footer list spans the full width */
+    }
+    @media screen and (max-width: 768px) {
+      footer {
+        padding: 0; /* Remove padding for small devices */
+        width: 100%;
+      }
+      
+      .footer-top,
+      .footer-bottom {
+        padding: 10px; /* Adjust padding for small devices */
+        width: 100%;
+      }
+    }    
+    
+  </style>
+
+
+
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="arrow-up-outline" aria-hidden="true"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
