@@ -25,6 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <!-- 
     - custom css link
@@ -367,224 +368,254 @@
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         fetch('/jobs')
-          .then(response => response.json())
-          .then(data => {
-            const jobListContainer = document.getElementById('job-list');
-  
-      
-            data.forEach(job => {
-              const jobCard = document.createElement('div');
-              jobCard.classList.add('job-card');
-  
-              jobCard.innerHTML = `
-                <div class="job-header">
-                  <img src="${job.companyLogo}" alt="Company Logo" class="company-logo">
-                  <div class="job-info">
-                    <h3 class="job-title">${job.companyName}</h3>
-                    <span class="job-type">${job.jobType}</span>
-                  </div>
-                </div>
-                <p class="job-role">${job.role}</p>
-                <div class="job-meta">
-                  <span class="job-location">${job.location}</span>
-                  <span class="job-duration">${job.duration}</span>
-                  <span class="job-batch">${job.batch}</span>
-                  <span class="job-salary">${job.salary}</span>
-                </div>
-                <p class="job-description">${job.description}</p>
-                <a href="${job.applyLink}" class="apply-btn">Apply</a>
-              `;
-  
-              jobListContainer.appendChild(jobCard);
+            .then(response => response.json())
+            .then(data => {
+                const jobListContainer = document.getElementById('job-list');
+    
+                data.forEach(job => {
+                    const jobCard = document.createElement('div');
+                    jobCard.classList.add('job-card');
+    
+                   
+                    let jobTypeIcon;
+                    switch (job.jobType) {
+                        case 'Full-Time':
+                            jobTypeIcon = '<i class="fas fa-clock"></i>';
+                            break;
+                        case 'Internship':
+                            jobTypeIcon = '<i class="fas fa-user-graduate"></i>';
+                            break;
+                        case 'Part-Time':
+                            jobTypeIcon = '<i class="fas fa-clock"></i>';
+                            break;
+                        case 'Contract':
+                            jobTypeIcon = '<i class="fas fa-file-contract"></i>';
+                            break;
+                        default:
+                            jobTypeIcon = '<i class="fas fa-briefcase"></i>';
+                    }
+    
+                    // Add icons to other fields
+                    const locationIcon = '<i class="fas fa-map-marker-alt"></i>';
+                    const durationIcon = '<i class="fas fa-calendar-alt"></i>';
+                    const batchIcon = '<i class="fas fa-calendar"></i>';
+                    const salaryIcon = '<i class="fas fa-dollar-sign"></i>';
+    
+                    jobCard.innerHTML = `
+                        <div class="job-header">
+                            <img src="${job.companyLogo}" alt="Company Logo" class="company-logo">
+                            <div class="job-info">
+                                <h3 class="job-title">${job.companyName}</h3>
+                                <span class="job-type">${jobTypeIcon} ${job.jobType}</span>
+                            </div>
+                        </div>
+                        <p class="job-role"><i class="fas fa-briefcase"></i> ${job.role}</p>
+                        <div class="job-meta">
+                            <span class="job-location">${locationIcon} ${job.location}</span>
+                            <span class="job-duration">${durationIcon} ${job.duration}</span>
+                            <span class="job-batch">${batchIcon} ${job.batch}</span>
+                            <span class="job-salary">${salaryIcon} ${job.salary}</span>
+                        </div>
+                        <p class="job-description">${job.description}</p>
+                        <a href="${job.applyLink}" class="apply-btn">Apply</a>
+                    `;
+    
+                    jobListContainer.appendChild(jobCard);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching job data:', error);
             });
-          })
-          .catch(error => {
-            console.error('Error fetching job data:', error);
-          });
-      });
+    });
+    
     </script>
   <style>
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
+    /* Existing styles */
+.job-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.company-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.job-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.job-title {
+  font-size: 20px;
+  margin: 0;
+}
+
+.job-type {
+  font-size: 14px;
+  color: #888;
+}
+
+.job-role {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.job-meta {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.job-meta span {
+  padding: 5px 10px;
+  border: 1px solid #444;
+  border-radius: 4px;
+}
+
+.job-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.job-location {
+  color: #e91e63;
+}
+
+.job-duration {
+  color: #2196f3;
+}
+
+.job-batch {
+  color: #ff9800;
+}
+
+.job-salary {
+  color: #4caf50;
+}
+
+
+
+.job-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--bg-oxford-blue);
+  border: 1px solid var(--border-prussian-blue);
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1 1 calc(100% - 20px);
+  box-sizing: border-box;
+}
+
+.apply-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  width: auto;
+  min-width: 120px;
+}
+
+.apply-btn:before,
+.apply-btn:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 25px;
+  border: 2px solid transparent;
+  animation: animateBorder 3s linear infinite;
+}
+
+.apply-btn:before {
+  border-color: white;
+}
+
+.apply-btn:after {
+  border-color: #6a0dad;
+  animation-delay: 1.5s;
+}
+
+@keyframes animateBorder {
+  0% {
+      clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   }
-  
-  .section-titles {
-      font-size: 36px;
-      margin-bottom: 10px;
+  25% {
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
   }
-  
-  .section-text {
-      font-size: 16px;
-      margin-bottom: 20px;
+  50% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%);
   }
-  
-  .job-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
+  75% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
-  
-  .job-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
+  100% {
+      clip-path: polygon(0 0, 0 0, 100% 100%, 0 100%);
   }
-  
-  .company-logo {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      margin-right: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+  .job-card {
+      flex: 1 1 calc(50% - 20px);
   }
-  
-  .job-info {
-      display: flex;
+}
+
+@media only screen and (min-width: 768px) {
+  .job-card {
+      flex: 1 1 calc(33.333% - 20px);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+      max-width: 1000px;
+  }
+  .job-card {
+      flex: 1 1 calc(33.333% - 20px);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .job-card {
       flex-direction: column;
-  }
-  
-  .job-title {
-      font-size: 20px;
-      margin: 0;
-  }
-  
-  .job-type {
-      font-size: 14px;
-      color: #888;
-  }
-  
-  .full-time {
-      color: #7c4dff;
-  }
-  
-  .part-time {
-      color: #ff5722;
-  }
-  
-  .internship {
-      color: #03a9f4;
-  }
-  
-  .contract {
-      color: #ff9800;
-  }
-  
-  .job-role {
-      font-size: 18px;
-      margin: 10px 0;
   }
   
   .job-meta {
-      display: flex;
-      gap: 10px;
-      font-size: 14px;
-      color: #888;
-      margin-bottom: 20px;
-  }
-  
-  .job-meta span {
-      padding: 5px 10px;
-      border: 1px solid #444;
-      border-radius: 4px;
-  }
-  
-  .job-location {
-      color: #e91e63;
-  }
-  
-  .job-duration {
-      color: #2196f3;
-  }
-  
-  .job-batch {
-      color: #ff9800;
-  }
-  
-  .job-salary {
-      color: #4caf50;
-  }
-  
-  .job-description {
-      font-size: 16px;
-      margin-bottom: 20px;
-  }
-  
-  .job-card {
-      display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      background-color: var(--bg-oxford-blue);
-      border: 1px solid var(--border-prussian-blue);
-      border-radius: 8px;
-      padding: 20px;
-      flex: 1 1 calc(50% - 20px); 
-      box-sizing: border-box;
+      gap: 5px;
   }
+  
   .apply-btn {
-    display: inline-block;
-    padding: 8px 16px; /* Adjusted padding to make the button smaller */
-    background-color: transparent;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    border: 2px solid transparent;
-    border-radius: 25px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    width: auto; /* Ensures the width adapts to the content */
-    min-width: 120px; /* Optional: Set a minimum width if needed */
+      align-self: center;
+      width: 100%;
   }
   
-  .apply-btn:before,
-  .apply-btn:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 25px;
-    border: 2px solid transparent;
-    animation: animateBorder 3s linear infinite;
+  .job-header {
+      flex-direction: column;
+      align-items: flex-start;
   }
   
-  .apply-btn:before {
-    border-color: white;
+  .company-logo {
+      margin-right: 0;
+      margin-bottom: 10px;
   }
   
-  .apply-btn:after {
-    border-color: #6a0dad;
-    animation-delay: 1.5s;
-  }
-  
-  @keyframes animateBorder {
-    0% {
-      clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-    }
-    25% {
-      clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
-    }
-    50% {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%);
-    }
-    75% {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    }
-    100% {
-      clip-path: polygon(0 0, 0 0, 100% 100%, 0 100%);
-    }
-  }
-  
-  
-
-  @media only screen and (min-width: 768px) {
-      .job-card {
-          flex: 1 1 calc(33.333% - 20px); 
-      }
-  }
+}
 </style>  
     </article>
     </main>
