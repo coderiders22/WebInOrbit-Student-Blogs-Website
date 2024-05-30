@@ -250,6 +250,41 @@ const blogs = [
         content: 'Currently, AI is being used to personalize learning...'
       }
     ]
+  },
+  {
+    id: '14',
+    title: 'Placements Advice',
+    image: '/assets/images/56.jpg',
+    description: '35 Articles',
+    category: 'hot-topics',
+    sections: [
+      {
+        title: 'Career Development Tips',
+        content: 'Find useful tips and advice to advance your career.'
+      }
+    ]
+  },
+  {
+    id: '13',
+    title: 'The Future of AI in Education',
+    image: '/assets/images/56.jpg',
+    description: 'Exploring the impact of AI on modern education.',
+    readTime: 5,
+    author: 'Joseph',
+    authorImage: '/assets/images/author-1.png',
+    date: '25 Nov 2023',
+    tags: ['Technology', 'AI'],
+    category: 'editors-picks',
+    sections: [
+      {
+        title: 'Introduction',
+        content: 'AI is transforming education in many ways...'
+      },
+      {
+        title: 'Current Trends',
+        content: 'Currently, AI is being used to personalize learning...'
+      }
+    ]
   }
 
 ];
@@ -278,6 +313,19 @@ const jobs = [
     batch: '2024',
     salary: '$3,000/month',
     description: 'Gain hands-on experience in product management.',
+    applyLink: 'https://webinorbit.com'
+  },
+  {
+    id: '3',
+    companyName: 'Tech Corp',
+    companyLogo: '/assets/images/56.jpg',
+    jobType: 'Full-Time',
+    role: 'Software Engineer',
+    location: 'San Francisco, CA',
+    duration: 'Permanent',
+    batch: '2023',
+    salary: '$120,000/year',
+    description: 'Join our dynamic team as a Software Engineer.',
     applyLink: 'https://webinorbit.com'
   }
   
