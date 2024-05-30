@@ -265,7 +265,7 @@ const blogs = [
     ]
   },
   {
-    id: '13',
+    id: '15',
     title: 'The Future of AI in Education',
     image: '/assets/images/56.jpg',
     description: 'Exploring the impact of AI on modern education.',
