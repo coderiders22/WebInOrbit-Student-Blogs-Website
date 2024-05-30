@@ -523,7 +523,7 @@
   }
   .apply-btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 8px 16px; /* Adjusted padding to make the button smaller */
     background-color: transparent;
     color: white;
     text-align: center;
@@ -534,9 +534,12 @@
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    width: auto; /* Ensures the width adapts to the content */
+    min-width: 120px; /* Optional: Set a minimum width if needed */
   }
   
-  .apply-btn:before, .apply-btn:after {
+  .apply-btn:before,
+  .apply-btn:after {
     content: '';
     position: absolute;
     top: 0;
@@ -554,7 +557,7 @@
   
   .apply-btn:after {
     border-color: #6a0dad;
-    animation-delay: 1.5s; 
+    animation-delay: 1.5s;
   }
   
   @keyframes animateBorder {
