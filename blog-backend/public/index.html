@@ -652,6 +652,53 @@
   </style>  
     </article>
     </main>
+    <section class="section google-ads" id="ads" aria-labelledby="ads-label">
+      <div class="container">
+        <h2 class="headline headline-2 section-titles" id="ads-label">
+          <span class="span">Sponsored Ads</span>
+        </h2>
+        <div class="ads-container">
+          <!-- Google Ads Code -->
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- Example Ad Unit -->
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+               data-ad-slot="XXXXXXXXXX"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+      </div>
+    </section>
+    <style>
+      .google-ads {
+        padding: 20px;
+        background-color: var(--bg-oxford-blue); /* Adjust this as needed */
+        border: 1px solid var(--border-prussian-blue); /* Adjust this as needed */
+        border-radius: 8px;
+        margin-top: 20px; /* Space above the ads section */
+      }
+    
+      .ads-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    
+      .adsbygoogle {
+        width: 100%;
+      }
+    
+      @media screen and (max-width: 768px) {
+        .google-ads {
+          padding: 10px; /* Adjust padding for small devices */
+        }
+      }
+    </style>
+    
     
         
 
@@ -664,144 +711,180 @@
 
   <footer>
     <div class="container">
-
       <div class="card footer">
-
         <div class="section footer-top">
-
           <div class="footer-brand">
-
             <a href="#" class="logo">
               <img src="./assets/images/43.png" width="250" height="250" loading="lazy" alt="Wren logo">
             </a>
-
             <p class="footer-text">
               Discover the latest insights in technology and placements, curated especially for students. Stay updated with expert advice, industry trends, and tips to ace your campus interviews. Join us on a journey to empower your career with knowledge and opportunities.
             </p>
-
             <p class="footer-list-title">Address</p>
-
             <address class="footer-text address">
               3547 Sector-23D Chandigarh <br>
-             
             </address>
-
           </div>
-
-          <div class="footer-list">
-</div>
-
-          <div class="footer-list">
-
+          <div class="footer-list newsletter">
             <p class="footer-list-title">Newsletter</p>
-
             <p class="footer-text">
               Sign up to be first to receive the latest stories inspiring us, case studies, and industry news.
             </p>
-
-            <div class="input-wrapper">
-              <input type="text" name="name" placeholder="Your name" required class="input-field" autocomplete="off">
-
-              <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
-            </div>
-
-            <div class="input-wrapper">
-              <input type="email" name="email_address" placeholder="Emaill address" required class="input-field"
-                autocomplete="off">
-
-              <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
-            </div>
-
-            <a href="#" class="btn btn-primary">
-              <span class="span">Subscribe</span>
-
-              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-            </a>
-
+            <form name="Contacts-form">
+              <div class="input-wrapper">
+                <input type="text" name="Name" placeholder="Your name" required class="input-field" autocomplete="off">
+                <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
+              </div>
+              <div class="input-wrapper">
+                <input type="email" name="Email" placeholder="Email address" required class="input-field" autocomplete="off">
+                <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <span class="span">Subscribe</span>
+                <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+              </button>
+            </form>
           </div>
-
         </div>
-
         <div class="footer-bottom">
-
           <p class="copyright">
-            &copy;  <a href="#" class="copyright-link">Stubic Solutions Private Limited</a>
+            &copy; <a href="#" class="copyright-link">Stubic Solutions Private Limited</a>
           </p>
-
           <ul class="social-list">
-
-            <li>
-              <a href="https://youtube.com/@WEBINORBIT23" class="social-link">
-                <ion-icon name="logo-youtube"></ion-icon>
-
-                <span class="span">Youtube</span>
-              </a>
-            </li>
-
-            <li>
-              <a href="https://www.linkedin.com/company/webinorbit/" class="social-link">
-                <ion-icon name="logo-linkedin"></ion-icon>
-
-                <span class="span">LinkedIn</span>
-              </a>
-            </li>
-
-            <li>
-              <a href="https://instagram.com/webinorbit?igshid=MTk0NTkyODZkYg==" class="social-link">
-                <ion-icon name="logo-instagram"></ion-icon>
-
-                <span class="span">Instagram</span>
-              </a>
-            </li>
-
+            <li><a href="https://youtube.com/@WEBINORBIT23" class="social-link"><ion-icon name="logo-youtube"></ion-icon><span class="span">Youtube</span></a></li>
+            <li><a href="https://www.linkedin.com/company/webinorbit/" class="social-link"><ion-icon name="logo-linkedin"></ion-icon><span class="span">LinkedIn</span></a></li>
+            <li><a href="https://instagram.com/webinorbit?igshid=MTk0NTkyODZkYg==" class="social-link"><ion-icon name="logo-instagram"></ion-icon><span class="span">Instagram</span></a></li>
           </ul>
-
         </div>
-
       </div>
-
     </div>
   </footer>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx35PzhBEUvmv49qJXaXNovhLotN5bdbQU_6rhmvO6CocJyxg6uLt9RrqLZJREPVLEEvw/exec';
+    const form = document.forms['Contacts-form'];
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => response.json())
+        .then(data => {
+          if (data.result === 'success') {
+            alert("Thank you for subscribing! You'll receive the latest updates on placements, technology, and job postings.");
+          } else {
+            alert("There was an error with your submission. Please try again.");
+          }
+        })
+        .catch(error => console.error('Error!', error.message));
+      form.reset();
+    });
+  </script>
+  
   <style>
-
     footer {
-      width: 100%; /* Set the width to 100% */
+      width: 100%;
     }
-    
+  
     .container {
-      width: 100%; /* Ensure the container spans the full width */
-      max-width: none; /* Disable any maximum width set by parent containers */
+      width: 100%;
+      max-width: none;
     }
-    
+  
     .card.footer {
-      width: 100%; /* Set the width to 100% */
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
-    
-    .footer-top,
+  
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 20px;
+    }
+  
+    .footer-brand {
+      flex: 1;
+      min-width: 250px;
+      margin-right: 20px;
+    }
+  
+    .footer-list.newsletter {
+      flex: 1;
+      min-width: 250px;
+      max-width: 400px;
+      margin-left: auto;
+    }
+  
     .footer-bottom {
-      padding: 20px; /* Adjust padding as needed */
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #ccc;
     }
-    
-    .footer-list {
-      width: 100%; /* Ensure the footer list spans the full width */
+  
+    .social-list {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
     }
+  
+    .social-list li {
+      margin: 0 10px;
+    }
+  
+    .social-list .social-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+  
+    .social-list .social-link ion-icon {
+      margin-right: 5px;
+    }
+  
+    .input-wrapper {
+      position: relative;
+      margin-bottom: 15px;
+    }
+  
+ 
+  
+    .btn.btn-primary {
+      display: flex;
+      align-items: center;
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  
+    .btn.btn-primary ion-icon {
+      margin-left: 5px;
+    }
+  
     @media screen and (max-width: 768px) {
-      footer {
-        padding: 0; /* Remove padding for small devices */
-        width: 100%;
+      .footer-top {
+        flex-direction: column;
+        align-items: center;
       }
-      
-      .footer-top,
+  
+      .footer-brand,
+      .footer-list.newsletter {
+        margin: 0;
+        text-align: center;
+      }
+  
       .footer-bottom {
-        padding: 10px; /* Adjust padding for small devices */
-        width: 100%;
+        padding: 10px;
       }
-    }    
+    }
     
   </style>
-
-
-
+  
 
 
   <!-- 
